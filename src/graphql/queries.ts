@@ -16,7 +16,7 @@ export const FETCH_COMPLAINTS = `
 
 export const FETCH_LAST_COMPLAINT_INSERTED = `
   query LastComplaint {
-    complaint(limit: 1, order_by: {id: asc}, where: {complaintId: {_is_null: false}}) {
+    complaint( order_by: {created_at: desc}, where: {complaintId: {_is_null: false}}, limit: 1) {
       companyId
       complaintId
       complaint
