@@ -23,8 +23,8 @@ export const updateComplaintId = catchAsync(
                 id,
                 updatedId
             );
-            res.status(200).json(result);
+            res.status(200).send(result);
         }
-        res.status(200).json({});
+        res.status(200).send({});
     }
 );
