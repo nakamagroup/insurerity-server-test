@@ -1,7 +1,11 @@
+import 'express-async-errors';
+
 import compression from 'compression';
 import cors from 'cors';
 import express, { Express, Request, Response } from 'express';
 
+import { NotFoundError } from './errors';
+import { errorHandler } from './middlewares';
 import { complaintRouter } from './routes';
 
 const app: Express = express();
@@ -20,5 +24,11 @@ app.get('/status', (req: Request, res: Response) => {
         success: true
     });
 });
+
+app.all('*', async (req: Request, res: Response) => {
+    throw new NotFoundError();
+});
+
+app.use(errorHandler);
 
 export default app;
