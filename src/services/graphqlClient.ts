@@ -1,11 +1,13 @@
 import { createClient } from 'graphqurl';
 
-const { GRAPHQL_ENDPOINT, GRAPHQL_SECRET } = process.env;
+import config from '../config';
+
+const { graphqlEndpoint, graphqlSecret } = config;
 
 const graphqlClient = createClient({
-    endpoint: `${GRAPHQL_ENDPOINT}/v1/graphql`,
+    endpoint: `${graphqlEndpoint}/v1/graphql`,
     headers: {
-        'x-hasura-admin-secret': `${GRAPHQL_SECRET}`
+        'x-hasura-admin-secret': `${graphqlSecret}`
     }
 });
 
