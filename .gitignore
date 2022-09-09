@@ -39,6 +39,10 @@ dist/**/*
 
 # ignore yarn.lock
 yarn.lock
+yarn-error.log
 
 # Logs
 logs
+
+# Eslint cache
+.eslintcache

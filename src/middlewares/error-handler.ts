@@ -14,6 +14,10 @@ const errorHandler: ErrorRequestHandler = (
             .send({ errors: err.serializeErrors() });
     }
 
+    if (Object.prototype.hasOwnProperty.call(err, 'errors')) {
+        return res.status(400).send(err);
+    }
+
     res.status(400).send({
         errors: [{ message: err.message }]
     });
