@@ -6,9 +6,10 @@ import {
 import graphqlClient from './graphqlClient';
 
 export const fetchComplaints = async () => {
-    return graphqlClient.query({
+    const { data } = await graphqlClient.query({
         query: FETCH_COMPLAINTS
     });
+    return data.complaint;
 };
 
 export const fetchLastInsertedComplaint = async () => {
