@@ -1,6 +1,6 @@
 export const FETCH_COMPLAINTS = `
-    query Complaints {
-        complaint {
+  query Complaints {
+      complaint {
         id
         companyId
         complaint
@@ -8,21 +8,20 @@ export const FETCH_COMPLAINTS = `
         source
         type
         company {
-                name
-            }
+          name
         }
-    }
+      }
+  }
 `;
 
 export const FETCH_LAST_COMPLAINT_INSERTED = `
-query MyQuery {
-  complaint(limit: 1, order_by: {id: asc}, where: {complaintId: {_is_null: false}}) {
-    companyId
-    complaintId
-    complaint
-    created_at
-    id
+  query LastComplaint {
+    complaint(limit: 1, order_by: {id: asc}, where: {complaintId: {_is_null: false}}) {
+      companyId
+      complaintId
+      complaint
+      created_at
+      id
+    }
   }
-}
-
 `;
