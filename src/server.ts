@@ -1,9 +1,11 @@
 import http from 'http';
 
 import app from './app';
+import config from './config';
 
-const PORT = 3030;
+const { port } = config;
 
 const server = http.createServer(app);
 
-server.listen(PORT, () => console.log(`Server ready on ${PORT} ⚡`));
+// eslint-disable-next-line no-console
+server.listen(port, () => console.log(`Server ready on ${port} ⚡`));
